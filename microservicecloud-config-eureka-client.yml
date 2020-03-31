@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+server:
+  port: 7001    # 注册中心占用 7001 端口,冒号后面必须要有空格
+
+
+spring:
+  profiles: dev    
+  application:
+    name: microservicecloud-config-eureka-client
+
+eureka:
+  instance: eureka7001.com    # 冒号后面必须要有空格
+  client:
+    register-with-eureka: false   # 当前的 eureka-server 自己不注册进服务列表中
+    fetch-registry: false    # 不通过 eureka 获取注册信息
+    service-url: http://eureka7001.com:7001/eureka/
+# 请保存为 UTF-8格式=======> 非常重要
